@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Shady Bears – Play Online | Fullscreen & Game Info (2024)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Play Shady Bears online for free Guide your bear through shadowy forests collect acorns and outwit rivals in solo or team play No downloads, no login." />
+  <link rel="canonical" href="https://shady-bears-game.github.io/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Shady Bears – Play Online | Fullscreen & Game Info (2024)" />
+  <meta property="og:description" content="Play Shady Bears online for free Guide your bear through shadowy forests collect acorns and outwit rivals in solo or team play No downloads, no login." />
+  <meta property="og:url" content="https://shady-bears-game.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --bg:#0e1116;
+      --ink:#e8ecf1;
+      --muted:#9aa7b2;
+      --brand:#31a56b;
+      --card:#151a22;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;
+      background:linear-gradient(180deg, #0e1116 0%, #0b0f14 100%);
+      color:var(--ink);
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:#69d5ff;text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(6px);
+      background:rgba(14,17,22,.85);
+      border-bottom:1px solid #1e2631;
+    }
+    .wrap{max-width:1200px; margin:0 auto; padding:18px 20px}
+    nav ul{display:flex; gap:18px; padding:0; margin:0; list-style:none; flex-wrap:wrap}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(61,220,132,.15)}
+    .grid{display:grid; gap:24px; grid-template-columns: 1.25fr .75fr}
+    @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
+    .card{background:var(--card); border:1px solid #1b2430; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .card .hd{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 16px; border-bottom:1px solid #1b2430;
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+      border-radius:16px 16px 0 0;
+    }
+    .muted{color:var(--muted)}
+    .game-shell{overflow:hidden}
+    .game-area{position:relative; aspect-ratio: 16/9; background:#0a0f15}
+    iframe.game{
+      position:absolute; inset:0; width:100%; height:100%;
+      border:0; display:block; background:#000; border-radius:0 0 16px 16px;
+    }
+    .btn{
+      appearance:none; border:1px solid #2a3342; color:var(--ink);
+      background:linear-gradient(180deg, #1b2430, #131a24);
+      padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600;
+    }
+    .btn:hover{border-color:#3a4658}
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{border-color:#2d7d57; background:linear-gradient(180deg, #2b8b5f, #1f6f4c)}
+    .btn-row{display:flex; gap:10px; align-items:center}
+    .info{padding:16px; display:grid; gap:6px; font-size:15px}
+    .info li{display:flex; justify-content:space-between; gap:16px; padding:10px 0; border-bottom:1px dashed #223043}
+    .info li:last-child{border-bottom:0}
+    .k{color:var(--muted)}
+    h1{font-size:clamp(28px, 2.4vw, 40px); margin:12px 0 6px}
+    h2{font-size:clamp(24px, 2vw, 32px); margin:26px 0 12px}
+    h3{font-size:clamp(18px, 1.4vw, 22px); margin:20px 0 8px}
+    h4{font-size:16px; margin:14px 0 6px; color:#c9d4dd}
+    p{color:#dbe3ea}
+    .lead{font-size:18px; color:#d1dee8}
+    .toc{display:flex; flex-wrap:wrap; gap:10px}
+    .toc a{display:inline-block; padding:8px 10px; border:1px solid #263246; border-radius:10px; background:#121823}
+    article.card{padding:22px}
+    .note{background:#112131; border:1px solid #1e3044; border-radius:12px; padding:14px 16px}
+    footer{margin-top:40px; padding:28px 0; border-top:1px solid #1b2430; background:#0b1016; color:#a7b5c2; font-size:14px}
+    .badge{display:inline-block; padding:2px 8px; border:1px solid #2a3342; border-radius:999px; font-size:12px; color:#a9b7c6}
+    .sr{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+  </style>
+  <meta name="google-site-verification" content="ZRr_ovO3cRRBTE9aTtk6ogWdswwvW7LLQisvFqLEVI8" />
+</head>
+<body>
+  <header>
+    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:18px;">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Shady Bears</span>
+        <span class="badge">HTML5</span>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#play">Play</a></li>
+          <li><a href="#info">Game Info</a></li>
+          <li><a href="#guide">How to Play</a></li>
+          <li><a href="#unblocked">Shady Bears Unblocked</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+  </header>
+
+  <main class="wrap">
+    <section id="play" class="grid">
+      <!-- Game Player -->
+      <div class="card game-shell" aria-labelledby="gameTitle">
+        <div class="hd">
+          <div>
+            <h1 id="gameTitle">Shady Bears – Play in Your Browser</h1>
+            <div class="muted" style="font-size:14px">Fast load • Fullscreen • No downloads</div>
+          </div>
+          <div class="btn-row">
+            <button id="fullscreenBtn" class="btn primary" aria-label="Enter fullscreen for the game">Enter Fullscreen</button>
+            <button id="reloadBtn" class="btn" aria-label="Reload the game">Reload</button>
+          </div>
+        </div>
+        <div class="game-area" id="gameArea">
+          <iframe
+            id="gameFrame"
+            class="game"
+            title="Shady Bears Game"
+            src="https://shady-bears-online.github.io/file/"
+            loading="lazy"
+            allow="fullscreen; gamepad; keyboard-lock; accelerometer; xr-spatial-tracking"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <noscript>
+          <div class="note" role="note">JavaScript is required to play the game. Please enable JavaScript in your browser settings.</div>
+        </noscript>
+      </div>
+
+      <!-- Game Info -->
+      <aside id="info" class="card">
+        <div class="hd"><h2 style="margin:0">Game Info</h2></div>
+        <ul class="info" aria-describedby="infoDesc">
+          <li><span class="k">Title</span><span>Shady Bears</span></li>
+          <li><span class="k">Release Date</span><span>2024</span></li>
+          <li><span class="k">Developer</span><span>Air Guslar</span></li>
+          <li><span class="k">Technology Used</span><span>HTML5</span></li>
+        </ul>
+        <p id="infoDesc" class="sr">Basic information about the Shady Bears game including title, release year, developer, and technology.</p>
+      </aside>
+    </section>
+
+    <!-- Article -->
+    <article class="card" id="guide">
+      <p class="lead">
+        Welcome to <strong>Shady Bears</strong>, a fast, charming, and mischievous HTML5 arcade game you can launch instantly in your browser.
+        This page gives you everything you need: how to play, controls, strategy tips, performance advice, device support, and answers to the most common questions—plus a convenient fullscreen button for maximum immersion.
+      </p>
+
+      <div class="toc" aria-label="On this page">
+        <a href="#what-is">What Is Shady Bears?</a>
+        <a href="#controls">Controls</a>
+        <a href="#mechanics">Core Mechanics</a>
+        <a href="#tips">Winning Tips</a>
+        <a href="#modes">Modes & Difficulty</a>
+        <a href="#progress">Progress & Mastery</a>
+        <a href="#devices">Devices & Performance</a>
+        <a href="#fullscreen">Why Fullscreen Helps</a>
+        <a href="#accessibility">Accessibility</a>
+        <a href="#troubleshoot">Troubleshooting</a>
+        <a href="#unblocked">Unblocked</a>
+        <a href="#parents">For Parents & Teachers</a>
+        <a href="#community">Community Play Ideas</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <h2 id="what-is">What Is Shady Bears?</h2>
+      <p>
+        <em>Shady Bears</em> is an approachable browser game that blends quick reactions with light strategy. It’s built with modern web technology (HTML5), which means it works on most devices with no downloads, logins, or complicated setup.
+        You press play, the game loads quickly, and you’re in—ideal for short breaks, late-night sessions, or sharing a fun challenge with friends.
+      </p>
+      <p>
+        The core loop focuses on clarity: simple inputs, readable threats, and a steady rhythm of “learn a pattern, apply it, master it.” This makes each run feel purposeful and encourages the “one more try” mindset that defines great arcade experiences.
+        Because the art and interface are clean, your attention goes where it matters most—movement, timing, and the small decisions that separate a regular run from a new personal best.
+      </p>
+
+      <h3>Why Players Love It</h3>
+      <ul>
+        <li><strong>Instant play:</strong> Launches in the browser—no accounts or installers.</li>
+        <li><strong>Clean visuals:</strong> High contrast and a tidy UI help you read the action.</li>
+        <li><strong>Short, addictive runs:</strong> Easy to fit into a busy day, hard to put down.</li>
+        <li><strong>Responsive feel:</strong> Tight input with satisfying feedback on every move.</li>
+        <li><strong>Universal access:</strong> Works on most phones, tablets, Chromebooks, and desktops.</li>
+      </ul>
+
+      <h2 id="controls">How to Control the Action</h2>
+      <p>
+        Controls are intentionally simple, so you can jump in without a tutorial. On desktop, use the keyboard; on mobile or tablet, the game presents touch-friendly inputs.
+        If you ever feel inputs aren’t registering, click or tap inside the game frame to give it focus, then try again.
+      </p>
+      <h3>Desktop & Laptop</h3>
+      <ul>
+        <li><strong>Move:</strong> Arrow keys or <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></li>
+        <li><strong>Confirm / Action:</strong> <kbd>Space</kbd> or <kbd>Enter</kbd></li>
+        <li><strong>Pause / Menu:</strong> <kbd>Esc</kbd></li>
+      </ul>
+      <h3>Mobile & Tablet</h3>
+      <ul>
+        <li><strong>Movement:</strong> On-screen joystick or swipes (device dependent)</li>
+        <li><strong>Action:</strong> Large tap button within easy reach</li>
+        <li><strong>Menu:</strong> Tap the gear or pause icon</li>
+      </ul>
+      <h4>Focus Tip</h4>
+      <p class="note">
+        On desktop, the game only receives keys if the iframe is focused. Click once inside the frame before you start moving.
+      </p>
+
+      <h2 id="mechanics">Core Mechanics & Game Flow</h2>
+      <p>
+        <em>Shady Bears</em> revolves around short, escalating sequences where you dodge hazards, time your movements, and grab advantages when the field opens up.
+        The game rewards calm decision-making more than frantic button mashing. Learning what to ignore and when to push forward is a big part of the fun.
+      </p>
+      <h3>Reading the Field</h3>
+      <p>
+        Keep your eyes a step ahead of your character. Most threats telegraph their behavior—an animation twitch, a brief glow, or a distinct movement pattern.
+        As you internalize these tells, you’ll stop reacting late and start moving proactively, turning close calls into clean escapes.
+      </p>
+      <h3>Spacing and Pathing</h3>
+      <p>
+        Good spacing buys time. Instead of hugging the center, float toward the edges to create breathing room, then re-enter when you see a clean lane.
+        The best path is rarely a straight line; it’s a gentle weave that keeps multiple options open. Avoid corners unless you’re resetting; they limit escape routes.
+      </p>
+      <h3>Risk vs. Reward</h3>
+      <p>
+        High scores come from taking the right risks at the right time. If the screen is congested, play defensively and preserve your run.
+        When the pattern opens, move decisively—small, confident inputs are safer than big, panicked ones. Consistency beats streaky gambling.
+      </p>
+
+      <h2 id="tips">Winning Tips for Consistent Progress</h2>
+      <h3>1) Warm Up With Intent</h3>
+      <p>
+        Dedicate your first two runs to observation only. Name one pattern you missed and focus on fixing that single issue. Within a few minutes, your success rate will jump because you’re practicing deliberately, not just playing more.
+      </p>
+      <h3>2) Use Edges as Rest Frames</h3>
+      <p>
+        The edges often overlap fewer hazards, letting you reset your timing. Don’t camp there forever—edges are a tool, not a home base—but use them to breathe before your next push.
+      </p>
+      <h3>3) Prioritize Survival First</h3>
+      <p>
+        Chasing every pickup is how good runs end early. Clear space first, then loop back for rewards when lanes are open. If you feel rushed, you’re probably forcing it.
+      </p>
+      <h3>4) Learn in Layers</h3>
+      <p>
+        Each session, choose one weakness to address: slow left-right transitions, misreading a particular enemy, or freezing during speed spikes. Layer these improvements over time and you’ll see steady, compounding gains.
+      </p>
+      <h3>5) Manage Tilt</h3>
+      <p>
+        After a mistake, most players overcorrect. Instead, pause for one beat, re-center your spacing, and resume with small moves. Calm play wins chaotic screens.
+      </p>
+      <h3>6) Fullscreen Early</h3>
+      <p>
+        The sooner you enter fullscreen, the faster your eyes adapt to motion and spacing cues. The button above the game toggles it instantly.
+      </p>
+      <h3>7) Short Sessions, Frequent Breaks</h3>
+      <p>
+        Because rounds are quick, it’s tempting to grind endlessly. Take three-minute breaks every 20 minutes. Your reaction time and pattern recognition will stay sharp.
+      </p>
+
+      <h2 id="modes">Modes, Difficulty & Replay Value</h2>
+      <p>
+        The charm of <em>Shady Bears</em> is how it ramps difficulty without overwhelming you. Speed gently increases, combinations grow trickier, and occasional curveballs test your poise.
+        The design encourages you to chase personal bests rather than grind through complicated menus.
+      </p>
+      <h3>Scaling Difficulty</h3>
+      <ul>
+        <li>Gradual speed-ups that challenge reaction time without feeling unfair.</li>
+        <li>Pattern remixes so familiar hazards feel fresh again.</li>
+        <li>Short “breathers” that let you reset before the next spike.</li>
+      </ul>
+      <h3>Endless Replayability</h3>
+      <p>
+        Short rounds, tight controls, and readable patterns make experimentation painless. You’ll quickly discover favorite openings, safe routes, and clever escapes you can depend on when the pace rises.
+      </p>
+
+      <h2 id="progress">Progress, Mastery & Mindset</h2>
+      <p>
+        Mastery in <em>Shady Bears</em> looks like quiet confidence: measured inputs, stable spacing, and an ability to reset after a mistake without spiraling.
+        Treat each run as data. What caused the fail? Late read? Bad spacing? Over-aggression? Name it, correct it on the next try, and log the improvement mentally.
+      </p>
+      <h3>Practice Framework</h3>
+      <ul>
+        <li><strong>Observe:</strong> Identify the specific pattern that beat you.</li>
+        <li><strong>Isolate:</strong> In the next run, practice only that scenario.</li>
+        <li><strong>Integrate:</strong> Once fixed, blend it into your full-game flow.</li>
+      </ul>
+      <h4>Mindset Cue</h4>
+      <p class="note">
+        Replace “I failed” with “I learned a timing I didn’t know.” It sounds simple, but it keeps your focus on progress instead of frustration.
+      </p>
+
+      <h2 id="devices">Devices & Performance</h2>
+      <p>
+        <em>Shady Bears</em> runs well on modern browsers across Windows, macOS, Linux, iOS, Android, and Chromebooks. If performance dips, the suggestions below usually fix it quickly.
+      </p>
+      <h3>Quick Fixes</h3>
+      <ul>
+        <li>Close unused tabs and background apps.</li>
+        <li>Update your browser to the latest version.</li>
+        <li>On laptops, plug into power and enable performance mode.</li>
+        <li>Use fullscreen for better focus and perceived smoothness.</li>
+      </ul>
+      <h3>Chromebook & School Networks</h3>
+      <p>
+        Chromebooks handle HTML5 games well, but school networks sometimes restrict game domains. If the game doesn’t load, try the unblocked route in the section below.
+      </p>
+
+      <h2 id="fullscreen">Why Fullscreen Helps</h2>
+      <p>
+        Fullscreen reduces visual clutter and makes motion cues easier to read. The button above the game toggles it instantly. On desktop, you can also press <kbd>Esc</kbd> to exit quickly if you need to switch tasks.
+      </p>
+
+      <h2 id="accessibility">Accessibility & Comfort</h2>
+      <p>
+        Readable UI, steady camera work, and clear contrast make <em>Shady Bears</em> approachable for a wide range of players. If motion sensitivity is a concern, take short breaks, reduce screen brightness, and play in a well-lit room. Audio cues are helpful, but not required—adjust your device volume to taste.
+      </p>
+      <h3>Input Options</h3>
+      <ul>
+        <li><strong>Keyboard:</strong> Many players prefer WASD for comfortable spacing.</li>
+        <li><strong>Touch:</strong> Use minimal swipes and deliberate taps; over-swipe leads to over-correction.</li>
+      </ul>
+
+      <h2 id="troubleshoot">Troubleshooting</h2>
+      <h3>The game isn’t responding to keys.</h3>
+      <p>Click inside the game frame to give it focus, then use <kbd>WASD</kbd> or the arrow keys.</p>
+      <h3>Audio too loud or quiet?</h3>
+      <p>Adjust your device volume and check whether the browser tab is muted.</p>
+      <h3>Experiencing lag?</h3>
+      <p>Close other tabs, refresh the page, try fullscreen, and ensure your browser is updated.</p>
+      <h3>Blank screen?</h3>
+      <p>Reload the page with the <strong>Reload</strong> button. If a content filter blocks the domain, use the unblocked option below.</p>
+
+      <h2 id="unblocked">Shady Bears Unblocked</h2>
+      <p>
+        If <strong>Shady Bears</strong> is blocked on your network, there’s a reliable alternative:
+        <br />
+        <strong><a href="https://www.gcsgames.com/game/shady-bears/" target="_blank">Play Shady Bears on GCSGames</a></strong>.
+        GCSGames often provides faster mirrors and unblocked access so you can keep playing without interruptions.
+      </p>
+
+      <h2 id="parents">For Parents & Teachers</h2>
+      <p>
+        <em>Shady Bears</em> is quick to launch, simple to understand, and easy to step away from—handy for short breaks between tasks.
+        Because it runs in the browser, there’s no installation or account creation, and sessions can be kept brief with a timer or a simple “three-run rule.”
+        If your network uses content filtering, the unblocked link above may or may not be permitted depending on your policies.
+      </p>
+      <h3>Skill Building</h3>
+      <ul>
+        <li><strong>Attention & focus:</strong> Reading patterns and anticipating motion.</li>
+        <li><strong>Executive function:</strong> Quick decisions with limited information.</li>
+        <li><strong>Emotional regulation:</strong> Recovering after a mistake without tilting.</li>
+      </ul>
+
+      <h2 id="community">Community Play Ideas</h2>
+      <p>
+        Even though <em>Shady Bears</em> is a single-player experience, it’s fun to share with friends. Set score challenges, trade tips, or create a “daily pattern” clip where everyone explains how they’d handle a tricky moment.
+        You can also stream short sessions to show routes and safe zones that newer players might miss.
+      </p>
+      <h3>Friendly Challenges</h3>
+      <ul>
+        <li><strong>Three-Run Sprint:</strong> Highest score across only three attempts.</li>
+        <li><strong>Edge-Only Start:</strong> First 15 seconds must be played near the edges.</li>
+        <li><strong>No-Panic Rule:</strong> If you get clipped, pause for one beat before moving again.</li>
+      </ul>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+
+      <h3>Is Shady Bears free to play?</h3>
+      <p>Yes—launch it directly in your browser with no downloads or sign-ups.</p>
+
+      <h3>Does Shady Bears work on Chromebooks?</h3>
+      <p>Absolutely. HTML5 support on modern Chromebooks is solid, and the game runs well on school and personal devices.</p>
+
+      <h3>Can I play with a controller?</h3>
+      <p>Keyboard and touch are primary. Some browsers map basic controller input, but support varies by device and isn’t guaranteed.</p>
+
+      <h3>How do I go fullscreen?</h3>
+      <p>Use the <strong>Enter Fullscreen</strong> button above the game. Press <kbd>Esc</kbd> to exit.</p>
+
+      <h3>Why is the game blocked at school or work?</h3>
+      <p>Some networks restrict gaming domains. If blocked, try the unblocked option via <a href="https://www.gcsgames.com/game/shady-bears/" target="_blank">GCSGames</a>.</p>
+
+      <h3>Do I need to install anything?</h3>
+      <p>No installation is required; a modern web browser is enough.</p>
+
+      <h3>What browsers are recommended?</h3>
+      <p>Current versions of Chrome, Edge, Firefox, or Safari typically provide the smoothest experience.</p>
+
+      <h3>Is there a way to pause?</h3>
+      <p>Use the in-game menu or press <kbd>Esc</kbd> on desktop (where supported).</p>
+
+      <h3>How can I improve my scores?</h3>
+      <p>Practice reading patterns, use edges to reset, and play in fullscreen to spot cues earlier.</p>
+
+      <h3>Who made Shady Bears?</h3>
+      <p><strong>Air Guslar</strong> is credited as the developer. The release year is <strong>2024</strong>.</p>
+
+      <h3>Is it safe to play?</h3>
+      <p>Yes. It’s a browser-based HTML5 game. Keeping your browser updated is always a good practice.</p>
+
+      <h3>Why does input feel delayed sometimes?</h3>
+      <p>Battery saver modes, background tabs, or heavy extensions can cause lag. Close extras, plug in, and refresh.</p>
+
+      <h3>Can I stream or record gameplay?</h3>
+      <p>Generally yes, subject to your local laws and platform policies. Many players share short highlight clips.</p>
+
+      <h3>Does progress save between sessions?</h3>
+      <p>Any saved data usually lives in your browser storage. Clearing cache or switching devices can reset it.</p>
+
+      <h2>Developer & Technology</h2>
+      <p>
+        <strong>Developer:</strong> Air Guslar — building clean, lightweight web games that focus on feel and readability.
+        <strong>Technology:</strong> HTML5 — fast loading, touch-friendly, and broadly compatible across modern devices.
+      </p>
+
+      <h2>Final Thoughts</h2>
+      <p>
+        <em>Shady Bears</em> delivers the essence of arcade fun—quick to learn, endlessly replayable, and built for the modern web.
+        Use the tips above to stabilize your early game, lean into fullscreen for better focus, and experiment with spacing until your movement feels second nature.
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>© 2025 Shady Bears (Fan Page). Not affiliated with third-party trademarks. All rights belong to their respective owners.</div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const iframe = document.getElementById('gameFrame');
+      const fsBtn = document.getElementById('fullscreenBtn');
+      const reloadBtn = document.getElementById('reloadBtn');
+      const area = document.getElementById('gameArea');
+
+      function enterFs(el){
+        if (el.requestFullscreen) return el.requestFullscreen();
+        if (el.webkitRequestFullscreen) return el.webkitRequestFullscreen();
+        if (el.msRequestFullscreen) return el.msRequestFullscreen();
+      }
+      function exitFs(){
+        if (document.exitFullscreen) return document.exitFullscreen();
+        if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
+        if (document.msExitFullscreen) return document.msExitFullscreen();
+      }
+      function isFs(){
+        return document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+      }
+
+      fsBtn.addEventListener('click', () => {
+        if (!isFs()) {
+          enterFs(area);
+        } else {
+          exitFs();
+        }
+      });
+
+      document.addEventListener('fullscreenchange', () => {
+        fsBtn.textContent = isFs() ? 'Exit Fullscreen' : 'Enter Fullscreen';
+        fsBtn.setAttribute('aria-label', isFs() ? 'Exit fullscreen for the game' : 'Enter fullscreen for the game');
+      });
+
+      reloadBtn.addEventListener('click', () => {
+        try {
+          const src = iframe.getAttribute('src');
+          iframe.setAttribute('src', src);
+        } catch(e){
+          location.reload();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
