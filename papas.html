@@ -2,41 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Papa's Sushiria Unblocked</title>
+  <title>Papa's Sushiria — Play Online</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Play Papa's Sushiria unblocked in browser with Ruffle Flash emulator. No Flash plugin required." />
-  <!-- Ruffle from CDN -->
-  <script src="https://unpkg.com/@ruffle-rs/ruffle@latest/dist/ruffle.js"></script>
+  <meta name="description" content="Play Papa's Sushiria in your browser with the Ruffle Flash emulator. No plugins needed." />
+  <!-- Use the NIGHTLY build for better AS3 support -->
+  <script src="https://unpkg.com/@ruffle-rs/ruffle@nightly/dist/ruffle.js"></script>
   <style>
-    body { background:#121726; color:#eee; font-family: system-ui,-apple-system,BlinkMacSystemFont,sans-serif; margin:0; padding:0; display:flex; flex-direction:column; align-items:center; }
-    h1 { margin:1rem 0 .2rem; font-size:2rem; }
-    #player { width:100%; max-width:860px; height:600px; background:#000; border:3px solid #2f3560; border-radius:8px; position:relative; }
-    .note { margin:8px; font-size:.9rem; }
-    .error { color:#ff6b6b; }
-    .btn { padding:8px 14px; background:#2563eb; color:#fff; border:none; border-radius:6px; cursor:pointer; font-size:.9rem; }
+    html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0e1220;color:#e8ecf3}
+    .wrap{max-width:960px;margin:0 auto;padding:16px}
+    h1{font-size:1.6rem;margin:12px 0}
+    #stage{position:relative;background:#000;border-radius:8px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.5);height:600px}
+    .row{display:flex;gap:8px;align-items:center;margin:10px 0 14px}
+    .btn{padding:8px 14px;border:0;border-radius:8px;background:#2563eb;color:#fff;font-weight:600;cursor:pointer}
+    .note{font-size:.9rem;opacity:.85}
+    #status{margin-top:8px;font-size:.9rem}
+    a.btn{display:inline-block;text-decoration:none}
   </style>
 </head>
 <body>
-  <h1>Papa's Sushiria</h1>
-  <div id="player">
-    <!-- Ruffle element -->
-    <ruffle-embed id="ruffle" style="width:100%; height:100%;" data-src="papas-sushiria.swf"></ruffle-embed>
+  <div class="wrap">
+    <h1>Papa's Sushiria</h1>
+    <div class="row">
+      <button class="btn" id="fs">Fullscreen</button>
+      <a class="btn" href="papas-sushiria.swf" download>Download SWF</a>
+    </div>
+
+    <div id="stage"></div>
+    <div id="status" class="note">Loading emulator…</div>
+
+    <p class="note">
+      If you see a blank screen: press <strong>Ctrl+Shift+R</strong> (hard refresh) or open DevTools (F12) → Console and share any error shown.
+    </p>
   </div>
-  <div class="note">
-    If the game doesn’t load: open DevTools (F12), check console for errors, and ensure `papas-sushiria.swf` is next to this HTML. 
-    <span id="status"></span>
-  </div>
-  <div class="note">
-    <button class="btn" onclick="location.reload()">Reload</button>
-    <a class="btn" href="papas-sushiria.swf" download style="margin-left:8px;">Download SWF</a>
-  </div>
-  <div class="note">
-    <strong>Debug tips:</strong>
-    <ul>
-      <li>In browser console, look for 404 on the SWF or MIME/type blocking messages.</li>
-      <li>GitHub Pages must serve this; raw GitHub URLs (raw.githubusercontent.com) often block embedding—use the `username.github.io` URL.</li>
-      <li>If you see “Ruffle failed to load” errors, copy/paste the console log here and I can interpret it.</li>
-    </ul>
-  </div>
+
+  <script>
+    (async function () {
+      const statusEl = document.getElementById('status');
+      try {
+        // Ensure Ruffle is present
+        if (!window.RufflePlayer) {
+          statusEl.textContent = 'Ruffle failed to initialize.';
+          return;
+        }
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        const stage = document.getElementById('stage');
+        stage.appendChild(player);
+
+        // Load SWF (must be in the same folder)
+        statusEl.textContent = 'Loading game…';
+        await player.load('papas-sushiria.swf');
+        statusEl.textContent = 'Loaded. Have fun!';
+
+        // Fullscreen
+        document.getElementById('fs').addEventListener('click', () => {
+          if (stage.requestFullscreen) stage.requestFullscreen();
+          else if (stage.webkitRequestFullscreen) stage.webkitRequestFullscreen();
+          else if (stage.msRequestFullscreen) stage.msRequestFullscreen();
+        });
+
+        // Basic resize to fit parent
+        function fit() {
+          player.style.width = '100%';
+          player.style.height = '100%';
+        }
+        window.addEventListener('resize', fit);
+        fit();
+      } catch (e) {
+        console.error(e);
+        statusEl.textContent = 'Error loading: ' + (e && e.message ? e.message : e);
+      }
+    })();
+  </script>
 </body>
 </html>
