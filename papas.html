@@ -5,18 +5,16 @@
   <title>Papa's Sushiria — Play Online</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Play Papa's Sushiria in your browser with the Ruffle Flash emulator. No plugins needed." />
-  <!-- Use the NIGHTLY build for better AS3 support -->
-  <script src="https://unpkg.com/@ruffle-rs/ruffle@nightly/dist/ruffle.js"></script>
   <style>
-    html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0e1220;color:#e8ecf3}
+    html,body{margin:0;height:100%;background:#0e1220;color:#e8ecf3;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
     .wrap{max-width:960px;margin:0 auto;padding:16px}
     h1{font-size:1.6rem;margin:12px 0}
     #stage{position:relative;background:#000;border-radius:8px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.5);height:600px}
     .row{display:flex;gap:8px;align-items:center;margin:10px 0 14px}
-    .btn{padding:8px 14px;border:0;border-radius:8px;background:#2563eb;color:#fff;font-weight:600;cursor:pointer}
-    .note{font-size:.9rem;opacity:.85}
-    #status{margin-top:8px;font-size:.9rem}
-    a.btn{display:inline-block;text-decoration:none}
+    .btn{padding:8px 14px;border:0;border-radius:8px;background:#2563eb;color:#fff;font-weight:600;cursor:pointer;text-decoration:none}
+    .note{font-size:.9rem;opacity:.9}
+    #status{margin-top:10px;font-size:.92rem}
+    ul{margin:.5rem 0;padding-left:1.2rem}
   </style>
 </head>
 <body>
@@ -27,52 +25,90 @@
       <a class="btn" href="papas-sushiria.swf" download>Download SWF</a>
     </div>
 
-    <div id="stage"></div>
+    <div id="stage" aria-label="Game area"></div>
     <div id="status" class="note">Loading emulator…</div>
 
-    <p class="note">
-      If you see a blank screen: press <strong>Ctrl+Shift+R</strong> (hard refresh) or open DevTools (F12) → Console and share any error shown.
-    </p>
+    <div class="note">
+      <strong>Checklist:</strong>
+      <ul>
+        <li>Page URL must be <code>https://YOURNAME.github.io/REPO/</code> (GitHub Pages), not raw.githubusercontent.com.</li>
+        <li><code>index.html</code> and <code>papas-sushiria.swf</code> in the SAME folder.</li>
+        <li>Open <code>.../papas-sushiria.swf</code> directly — if it 404s, the path/name is wrong.</li>
+        <li>Hard refresh (Cmd/Ctrl+Shift+R) after publishing.</li>
+      </ul>
+    </div>
   </div>
 
   <script>
-    (async function () {
-      const statusEl = document.getElementById('status');
-      try {
-        // Ensure Ruffle is present
-        if (!window.RufflePlayer) {
-          statusEl.textContent = 'Ruffle failed to initialize.';
-          return;
+    // Try multiple CDNs (nightly first), report status visibly.
+    const statusEl = document.getElementById('status');
+    const CDNS = [
+      "https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle-nightly@latest/dist/ruffle.js",
+      "https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle@latest/dist/ruffle.js",
+      "https://unpkg.com/@ruffle-rs/ruffle@latest/dist/ruffle.js"
+    ];
+
+    function loadScript(src) {
+      return new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = src;
+        s.async = true;
+        s.crossOrigin = "anonymous";
+        s.onload = () => resolve(src);
+        s.onerror = () => reject(new Error("Failed: " + src));
+        document.head.appendChild(s);
+      });
+    }
+
+    async function loadRuffleWithFallback() {
+      for (const url of CDNS) {
+        try {
+          statusEl.textContent = "Loading Ruffle… (" + url + ")";
+          await loadScript(url);
+          if (window.RufflePlayer) {
+            statusEl.textContent = "Ruffle loaded from: " + url;
+            return true;
+          }
+        } catch (e) {
+          // try next
         }
+      }
+      statusEl.textContent = "Could not load Ruffle from any CDN.";
+      return false;
+    }
+
+    async function boot() {
+      const ok = await loadRuffleWithFallback();
+      if (!ok) return;
+
+      try {
         const ruffle = window.RufflePlayer.newest();
         const player = ruffle.createPlayer();
         const stage = document.getElementById('stage');
         stage.appendChild(player);
 
-        // Load SWF (must be in the same folder)
-        statusEl.textContent = 'Loading game…';
-        await player.load('papas-sushiria.swf');
-        statusEl.textContent = 'Loaded. Have fun!';
+        statusEl.textContent = "Loading game…";
+        await player.load("papas-sushiria.swf");
+        statusEl.textContent = "Loaded. Have fun!";
 
-        // Fullscreen
+        // Fullscreen button
         document.getElementById('fs').addEventListener('click', () => {
           if (stage.requestFullscreen) stage.requestFullscreen();
           else if (stage.webkitRequestFullscreen) stage.webkitRequestFullscreen();
           else if (stage.msRequestFullscreen) stage.msRequestFullscreen();
         });
 
-        // Basic resize to fit parent
-        function fit() {
-          player.style.width = '100%';
-          player.style.height = '100%';
-        }
-        window.addEventListener('resize', fit);
-        fit();
+        // Fit player to container
+        function fit(){ player.style.width = "100%"; player.style.height = "100%"; }
+        window.addEventListener('resize', fit); fit();
       } catch (e) {
         console.error(e);
-        statusEl.textContent = 'Error loading: ' + (e && e.message ? e.message : e);
+        statusEl.textContent = "Error loading game: " + (e?.message || e);
       }
-    })();
+    }
+
+    boot();
   </script>
+  <noscript><div class="note">Enable JavaScript to play.</div></noscript>
 </body>
 </html>
