@@ -1,237 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Papa's Sushiria Unblocked - Play Free</title>
-  <meta name="description" content="Play Papa's Sushiria unblocked directly in your browser. No downloads, no login. Smooth HTML5-like experience via Ruffle Flash emulator." />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Ruffle Web Emulator (self-hosting fallback if needed: https://ruffle.rs ) -->
+  <meta charset="utf-8" />
+  <title>Papa's Sushiria Unblocked</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Play Papa's Sushiria unblocked in browser with Ruffle Flash emulator. No Flash plugin required." />
+  <!-- Ruffle from CDN -->
   <script src="https://unpkg.com/@ruffle-rs/ruffle@latest/dist/ruffle.js"></script>
   <style>
-    :root {
-      --bg:#0f111a;
-      --card:#1f2438;
-      --radius:12px;
-      --shadow:0 20px 40px -10px rgba(0,0,0,0.5);
-      font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;
-      color:#f0f4fd;
-    }
-    *{box-sizing:border-box;}
-    body {
-      margin:0;
-      background:linear-gradient(135deg,#0f111a 0%,#1b203a 70%);
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      padding:1rem;
-    }
-    .container {
-      max-width:1000px;
-      width:100%;
-      display:grid;
-      gap:1.5rem;
-      margin-bottom:2rem;
-    }
-    header {
-      text-align:center;
-    }
-    h1 {
-      margin:0;
-      font-size:2.2rem;
-      line-height:1.1;
-    }
-    .sub {
-      margin:4px 0 12px;
-      font-size:1rem;
-      opacity:.85;
-    }
-    .game-wrapper {
-      position:relative;
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:16px;
-      box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .ruffle-container {
-      position:relative;
-      width:100%;
-      padding-top:56.25%; /* 16:9 ratio */
-      background:#000;
-      border-radius:8px;
-      overflow:hidden;
-    }
-    ruffle-embed {
-      position:absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-    }
-    .controls {
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .btn {
-      padding:10px 16px;
-      background:#2563eb;
-      border:none;
-      color:white;
-      cursor:pointer;
-      font-size:0.9rem;
-      border-radius:8px;
-      font-weight:600;
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      transition:filter .2s;
-    }
-    .btn:hover { filter:brightness(1.1); }
-    .info {
-      background:rgba(255,255,255,0.05);
-      padding:12px 16px;
-      border-radius:8px;
-      font-size:0.9rem;
-      line-height:1.4;
-    }
-    .seo {
-      margin-top:1rem;
-      background:rgba(255,255,255,0.03);
-      padding:12px 16px;
-      border-radius:8px;
-      font-size:0.8rem;
-    }
-    .full-screen-hint {
-      position:absolute;
-      top:8px;
-      right:8px;
-      background:rgba(0,0,0,0.5);
-      padding:6px 10px;
-      border-radius:6px;
-      font-size:0.75rem;
-    }
-    footer {
-      margin-top:40px;
-      text-align:center;
-      font-size:0.75rem;
-      opacity:.7;
-    }
-    a {
-      color:#6ec1ff;
-      text-decoration:none;
-    }
-    .faq {
-      background:var(--card);
-      border-radius:8px;
-      padding:16px;
-      box-shadow:var(--shadow);
-    }
-    .faq h2 { margin-top:0; }
-    .faq-item { margin-bottom:12px; }
-    .faq-item strong { display:block; margin-bottom:4px; }
-    .tagline {
-      background:#1a254f;
-      padding:10px 14px;
-      border-radius:8px;
-      font-size:0.9rem;
-      display:inline-block;
-    }
+    body { background:#121726; color:#eee; font-family: system-ui,-apple-system,BlinkMacSystemFont,sans-serif; margin:0; padding:0; display:flex; flex-direction:column; align-items:center; }
+    h1 { margin:1rem 0 .2rem; font-size:2rem; }
+    #player { width:100%; max-width:860px; height:600px; background:#000; border:3px solid #2f3560; border-radius:8px; position:relative; }
+    .note { margin:8px; font-size:.9rem; }
+    .error { color:#ff6b6b; }
+    .btn { padding:8px 14px; background:#2563eb; color:#fff; border:none; border-radius:6px; cursor:pointer; font-size:.9rem; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="tagline">Play Papa's Sushiria Unblocked • No login • Instant</div>
-      <h1>Papa's Sushiria</h1>
-      <div class="sub">Run your sushi shop, serve delicious rolls, and climb ranks. Works in modern browsers via Ruffle.</div>
-    </header>
-
-    <section class="game-wrapper">
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-        <div>
-          <strong>Play Papa's Sushiria</strong>
-          <div style="font-size:0.85rem;">Flash game powered by Ruffle emulator so it works without Flash plugin.</div>
-        </div>
-        <div class="controls">
-          <button class="btn" id="fullscreenBtn">Fullscreen</button>
-          <a class="btn" href="https://www.gcsgames.com/wp-content/uploads/games/custom/P/papas-sushiria.swf" download title="Download SWF">Download Game</a>
-        </div>
-      </div>
-      <div class="ruffle-container" id="gameArea">
-        <div class="full-screen-hint">Click Fullscreen for best experience</div>
-        <ruffle-embed id="ruffle" data-src="papas-sushiria.swf"></ruffle-embed>
-      </div>
-      <div class="info">
-        <p><strong>How to use:</strong> Wait for the game to load. If it doesn't start, refresh. Use the in-game controls to serve sushi and level up your restaurant. This runs locally in browser—no external trackers.</p>
-        <p><strong>Troubleshooting:</strong> If the game appears blank, make sure JavaScript is enabled and you are not blocking the Ruffle script. Reload the page. Ruffle is actively maintained; if rendering issues persist, try a different up-to-date browser (Chrome, Edge, Firefox, Safari).</p>
-      </div>
-    </section>
-
-    <section class="faq">
-      <h2>Common Questions</h2>
-      <div class="faq-item">
-        <strong>Can I play Papa's Sushiria for free?</strong>
-        <div>Yes. This version runs unblocked in your browser with no payment, login, or download required beyond the SWF file already here.</div>
-      </div>
-      <div class="faq-item">
-        <strong>Why does it work if Flash is removed from browsers?</strong>
-        <div>Ruffle emulates Flash content in modern browsers safely without the deprecated Flash plugin.</div>
-      </div>
-      <div class="faq-item">
-        <strong>Can I go fullscreen?</strong>
-        <div>Yes. Click the "Fullscreen" button above. If the browser asks permission, allow it. You can also press F11 on desktop to toggle browser fullscreen.</div>
-      </div>
-      <div class="faq-item">
-        <strong>Does it save progress?</strong>
-        <div>Progress depends on the original game's save mechanism; some Flash games use local storage or external saves which may not persist across sessions in this setup.</div>
-      </div>
-      <div class="faq-item">
-        <strong>What if the game doesn't load?</strong>
-        <div>Refresh the page, disable extensions that block scripts, and ensure you're online. If still broken, try a different browser.</div>
-      </div>
-    </section>
-
-    <div class="seo">
-      <p><strong>SEO tip:</strong> If embedding this on a public page, use structured headings like above, include descriptive alt text for any future images, and canonicalize if you mirror elsewhere.</p>
-    </div>
+  <h1>Papa's Sushiria</h1>
+  <div id="player">
+    <!-- Ruffle element -->
+    <ruffle-embed id="ruffle" style="width:100%; height:100%;" data-src="papas-sushiria.swf"></ruffle-embed>
   </div>
-
-  <footer>
-    <div>© Papa's Sushiria Fan Version. Powered by Ruffle. Hosted on GitHub Pages.</div>
-  </footer>
-
-  <script>
-    // Fullscreen handler
-    const fsBtn = document.getElementById("fullscreenBtn");
-    const gameArea = document.getElementById("gameArea");
-    fsBtn.addEventListener("click", () => {
-      if (gameArea.requestFullscreen) {
-        gameArea.requestFullscreen();
-      } else if (gameArea.webkitRequestFullscreen) {
-        gameArea.webkitRequestFullscreen();
-      } else if (gameArea.msRequestFullscreen) {
-        gameArea.msRequestFullscreen();
-      }
-    });
-
-    // Initialize Ruffle if needed (auto-handled by embed script)
-    window.addEventListener("DOMContentLoaded", () => {
-      if (window.RufflePlayer) {
-        const ruffle = window.RufflePlayer.newest();
-        const player = ruffle.createPlayer();
-        const container = document.getElementById("ruffle");
-        // fallback: if the custom element didn't auto-upgrade, manually embed
-        if (!container.shadowRoot) {
-          container.replaceWith(player);
-          player.load("papas-sushiria.swf");
-        }
-      }
-    });
-  </script>
+  <div class="note">
+    If the game doesn’t load: open DevTools (F12), check console for errors, and ensure `papas-sushiria.swf` is next to this HTML. 
+    <span id="status"></span>
+  </div>
+  <div class="note">
+    <button class="btn" onclick="location.reload()">Reload</button>
+    <a class="btn" href="papas-sushiria.swf" download style="margin-left:8px;">Download SWF</a>
+  </div>
+  <div class="note">
+    <strong>Debug tips:</strong>
+    <ul>
+      <li>In browser console, look for 404 on the SWF or MIME/type blocking messages.</li>
+      <li>GitHub Pages must serve this; raw GitHub URLs (raw.githubusercontent.com) often block embedding—use the `username.github.io` URL.</li>
+      <li>If you see “Ruffle failed to load” errors, copy/paste the console log here and I can interpret it.</li>
+    </ul>
+  </div>
 </body>
 </html>
